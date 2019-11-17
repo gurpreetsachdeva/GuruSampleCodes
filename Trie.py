@@ -18,7 +18,7 @@ class Trie:
             top_node=top_node.children[word[i]]
         
         top_node.leaf_node=True
-        print("setting leaf_node =true")
+        #print("setting leaf_node =true")
             
     def find(self,word):
         top_node=self.root
@@ -29,14 +29,15 @@ class Trie:
                 top_node=top_node.children.get(ch,None)
         if top_node!=None and top_node.leaf_node==True:
             return True
-    def iterate_subtree(self,trie,current_word,ans):
+    def iterate_subtree(self,trie,current_word):
         ans=[]
         if(trie.leaf_node==True):
             ans.append(current_word+"")
+        #print(ans)
         for key,value in trie.children.items():
-            self.iterate_subtree(value,current_word+key,ans)
+            ans.extend(self.iterate_subtree(value,current_word+key))
         return ans
-    #AutoCompletion Seems buggy, Correct Tom
+    #AutoCompletion or prefixStringSearch, Corrected now #2 commit
     def prefixString(self,word):
         top_node=self.root
         for ch in word:
@@ -44,8 +45,8 @@ class Trie:
                 return -1
             else:
                 top_node=top_node.children.get(ch,None)
-        ans=self.iterate_subtree(top_node,word,[])
-        print(ans)
+        ans=self.iterate_subtree(top_node,word)
+        return ans
            
 
             
@@ -56,4 +57,4 @@ if __name__=='__main__':
         trie.insert(w)
 
     print(trie.find('abc'))
-    #print(trie.find('abcde'))
+    print(trie.find('abcde'))
