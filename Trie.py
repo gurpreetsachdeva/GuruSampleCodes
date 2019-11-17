@@ -42,7 +42,7 @@ class Trie:
         top_node=self.root
         for ch in word:
             if(top_node.children.get(ch,None)==None):
-                return -1
+                return []
             else:
                 top_node=top_node.children.get(ch,None)
         ans=self.iterate_subtree(top_node,word)
