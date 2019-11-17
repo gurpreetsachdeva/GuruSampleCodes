@@ -58,3 +58,6 @@ if __name__=='__main__':
 
     print(trie.find('abc'))
     print(trie.find('abcde'))
+
+    print("Print all words inside Trie using blank Search ;)")
+    print(trie.prefixString(''))
