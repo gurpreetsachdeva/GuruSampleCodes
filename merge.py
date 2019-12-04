@@ -54,7 +54,7 @@ def binarysearch(a,start,end,key):
 	if(a[mid]<key):
 		return binarysearch(a,mid+1,end,key)
 	else:
-		return binarysearch(a,start,mid,key)
+		return binarysearch(a,start,mid-1,key)
 print("**********************************************")
 
 a=[1,2,3]
