@@ -78,3 +78,14 @@ print("First Test Case")
 print(search_rotated_array([7,8,9,1,2,3],8))
 print("Second test case")
 print(search_rotated_array([7,8,9,1,2,3],10))
+
+
+# Additional extra element to get sorted list
+def sortArrayList(arr):
+	x=findindex(arr,0,len(arr)-1)
+	if(x==-1):
+		return arr
+	else:
+		return arr[x:]+arr[0:x]
+print(sortArrayList([7,8,9,1,2,3]))
+
